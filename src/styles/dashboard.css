@@ -1,0 +1,269 @@
+.toolbar {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgb(74, 50, 45) 0%, rgb(26, 40, 34) 100%);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  position: relative;
+}
+
+.toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--mh-gold), var(--mh-amber));
+  border-radius: 12px 0 0 12px;
+  box-shadow: var(--glow-gold);
+}
+
+.toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.toolbar label:hover {
+  color: var(--accent-primary);
+}
+
+.toolbar input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent-primary);
+  border-radius: 4px;
+}
+
+.stats {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  background: rgba(13, 20, 16, 0.6);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  font-family: 'Marcellus', serif;
+  letter-spacing: 0.5px;
+}
+
+.table-wrap {
+  margin-top: 24px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  position: relative;
+  z-index: 1;
+}
+
+.table thead {
+  background: linear-gradient(135deg, #2d4a3e 0%, #1e3329 100%);
+}
+
+.table th {
+  padding: 16px;
+  border-bottom: 2px solid var(--border-accent);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-primary);
+  text-align: left;
+}
+
+.table th:nth-child(2),
+.table th:nth-child(3) {
+  text-align: center;
+}
+
+.table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(61, 85, 72, 0.3);
+  background: rgba(30, 45, 39, 0.4);
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: rgba(45, 74, 62, 0.2);
+}
+
+.table tbody tr:hover td {
+  border-bottom-color: var(--border-primary);
+  color: var(--text-primary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: var(--accent-primary);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.table input[type="checkbox"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Badge Styles - Monster Crown Status */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s ease;
+}
+
+.badge:hover::before {
+  left: 100%;
+}
+
+/* Complete - Golden Crown */
+.badge.ok {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(255, 159, 28, 0.15) 100%);
+  color: var(--mh-gold);
+  border-color: var(--mh-gold);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* Partial - Amber Warning */
+.badge.partial {
+  background: linear-gradient(135deg, rgba(255, 159, 28, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+  color: var(--mh-amber);
+  border-color: var(--mh-amber);
+  box-shadow: 0 0 12px rgba(255, 159, 28, 0.25);
+}
+
+/* Missing - Blood Red */
+.badge.missing {
+  background: linear-gradient(135deg, rgba(193, 18, 31, 0.2) 0%, rgba(139, 0, 0, 0.1) 100%);
+  color: var(--mh-blood);
+  border-color: var(--mh-blood);
+  box-shadow: 0 0 10px rgba(193, 18, 31, 0.2);
+}
+
+/* Add icon indicators */
+.badge.ok::after {
+  content: '👑';
+  margin-left: 6px;
+  font-size: 14px;
+  animation: spin-crown 4s linear infinite;
+}
+
+@keyframes spin-crown {
+  0%, 90%, 100% {
+    transform: rotate(0deg);
+  }
+  95% {
+    transform: rotate(360deg);
+  }
+}
+
+.badge.partial::after {
+  content: '⚠';
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+.badge.missing::after {
+  content: '✗';
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .stats {
+    margin-left: 0;
+    margin-top: 12px;
+    text-align: center;
+  }
+  
+  .table {
+    font-size: 14px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px 8px;
+  }
+}

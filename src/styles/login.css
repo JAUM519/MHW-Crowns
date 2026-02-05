@@ -1,0 +1,175 @@
+/* Fondo general tipo “landing” */
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(1100px 600px at 15% 10%, rgba(255, 168, 76, 0.35), transparent 60%),
+    radial-gradient(900px 600px at 90% 30%, rgba(170, 92, 35, 0.35), transparent 55%),
+    linear-gradient(180deg, #1a120d 0%, #120c08 100%);
+}
+
+/* Contenedor grande */
+.login-shell {
+  width: min(980px, 100%);
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Panel izquierdo (WELCOME) */
+.login-left {
+  position: relative;
+  background:
+    radial-gradient(900px 520px at 30% 30%, rgba(255, 180, 98, 0.35), transparent 60%),
+    linear-gradient(135deg, #6f3a16 0%, #2a160b 55%, #1b110b 100%);
+}
+
+.login-left-inner {
+  position: relative;
+  height: 100%;
+  padding: 44px 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1;
+}
+
+.login-kicker {
+  letter-spacing: 0.18em;
+  font-weight: 800;
+  color: rgba(255, 235, 210, 0.9);
+  font-size: 12px;
+}
+
+.login-headline {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.05;
+  color: #fff3e3;
+}
+
+.login-subtitle {
+  margin: 0;
+  max-width: 420px;
+  color: rgba(255, 235, 210, 0.82);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+
+/* Orbes decorativos */
+.orb {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 220, 175, 0.95), rgba(255, 132, 66, 0.38) 45%, rgba(0, 0, 0, 0) 70%),
+              radial-gradient(circle at 60% 70%, rgba(255, 140, 70, 0.65), rgba(0, 0, 0, 0) 60%);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.orb-1 { width: 210px; height: 210px; left: -60px; bottom: -70px; }
+.orb-2 { width: 140px; height: 140px; left: 80px; bottom: 30px; opacity: 0.9; }
+.orb-3 { width: 110px; height: 110px; left: 24px; top: 220px; opacity: 0.7; }
+
+/* Panel derecho (form/card) */
+.login-right {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.92) 100%);
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.login-card {
+  width: min(360px, 100%);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.login-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #2a160b;
+}
+
+.login-hint {
+  margin-top: 6px;
+  color: rgba(42, 22, 11, 0.70);
+  font-size: 13px;
+}
+
+/* Botón Google estilo “moderno” */
+.login-google-btn {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(42, 22, 11, 0.14);
+  background: linear-gradient(180deg, #ffb36a 0%, #e07a2f 100%);
+  color: #241308;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(224, 122, 47, 0.28);
+}
+
+.login-google-btn:hover {
+  filter: brightness(1.03);
+}
+
+.login-google-btn:active {
+  transform: translateY(1px);
+}
+
+.g-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background:
+    conic-gradient(from 210deg,
+      #ea4335 0 25%,
+      #fbbc05 25% 50%,
+      #34a853 50% 75%,
+      #4285f4 75% 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.login-footnote {
+  margin-top: 12px;
+  font-size: 12px;
+  color: rgba(42, 22, 11, 0.62);
+  line-height: 1.45;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .login-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .login-left::after {
+    display: none;
+  }
+
+  .login-left-inner {
+    padding: 34px 24px;
+  }
+
+  .orb-1 { left: -90px; bottom: -90px; }
+}
